@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#070d1a">
+<meta name="description" content="天目 · 4天明亮眼神速成 —— 一套关于眼周肌力、眼球灵活度、聚焦调节与神采整合的护眼训练系统">
+<title>天目 · 4天明亮眼神速成</title>
+<style>
+:root{
+  --night:#070d1a;--night2:#0d1a2e;--deep:#04080f;
+  --gold:#e8c98a;--gold2:#f5dcae;--iris:#c9a777;
+  --cream:#f5efe0;--muted:#8a9bb0;--line:rgba(232,201,138,.16);
+  --ok:#7db88c;
+  --serif:"Songti SC","STSong","Noto Serif CJK SC","Noto Serif SC",serif;
+  --sans:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+body{
+  font-family:var(--sans);color:var(--cream);background:var(--night);
+  min-height:100vh;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;
+  background-image:
+    radial-gradient(1100px 560px at 50% -8%,rgba(232,201,138,.10),transparent 60%),
+    radial-gradient(900px 520px at 50% 112%,rgba(125,168,140,.07),transparent 60%),
+    linear-gradient(180deg,var(--deep),var(--night) 55%,var(--night2));
+}
+.stars{position:fixed;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.star{position:absolute;border-radius:50%;background:#fff;
+  animation:twinkle var(--d,4s) ease-in-out infinite;opacity:.7}
+@keyframes twinkle{0%,100%{opacity:.15}50%{opacity:.85}}
+.wrap{position:relative;z-index:1;max-width:680px;margin:0 auto;padding:52px 20px 80px}
+
+/* hero */
+.kicker{font-family:var(--serif);font-size:13px;color:var(--muted);letter-spacing:4px;margin-bottom:14px;text-align:center}
+h1{font-family:var(--serif);font-weight:700;font-size:58px;margin:0;letter-spacing:4px;text-align:center;
+  background:linear-gradient(120deg,var(--cream),var(--gold2) 55%,var(--gold));
+  -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sub{font-family:var(--serif);font-size:14px;color:var(--gold);letter-spacing:.5em;margin-top:10px;text-align:center}
+.tagline{font-family:var(--serif);font-size:15px;color:var(--muted);margin-top:18px;text-align:center}
+
+.eye{width:150px;height:150px;margin:34px auto 8px;border-radius:50%;position:relative;
+  background:radial-gradient(circle at 50% 46%,#1a1a1a 0%,#0c0c0c 46%,#000 78%);
+  box-shadow:0 24px 60px rgba(0,0,0,.55),0 0 70px rgba(232,201,138,.22),inset 0 0 0 1px rgba(255,255,255,.06)}
+.eye .iris{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:92px;height:92px;border-radius:50%;
+  background:radial-gradient(circle at 50% 42%,var(--gold2) 0%,var(--gold) 34%,#7a5c2e 62%,#3a2c16 100%);
+  box-shadow:inset 0 0 18px rgba(0,0,0,.55),0 0 30px rgba(232,201,138,.4);
+  animation:gaze 9s ease-in-out infinite}
+.eye .pupil{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:34px;height:34px;border-radius:50%;background:#000;
+  box-shadow:inset 0 0 6px rgba(255,255,255,.12)}
+.eye .spark{position:absolute;left:62%;top:34%;width:14px;height:14px;border-radius:50%;
+  background:#fff;filter:blur(1px);opacity:.95}
+@keyframes gaze{0%,100%{transform:translate(-50%,-50%) translate(0,0)}
+  25%{transform:translate(-50%,-50%) translate(14px,-6px)}
+  50%{transform:translate(-50%,-50%) translate(-6px,10px)}
+  75%{transform:translate(-50%,-50%) translate(-14px,2px)}}
+
+/* honest science note */
+.note{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:16px;
+  padding:20px 22px;margin:26px auto 0;max-width:560px}
+.note h3{font-family:var(--serif);margin:0 0 10px;font-size:16px;color:var(--gold2);letter-spacing:1px}
+.note p{margin:8px 0;font-size:13.5px;color:var(--muted)}
+.note b{color:var(--cream);font-weight:600}
+
+/* progress strip */
+.progress{margin:30px auto 0;max-width:560px;text-align:center}
+.progress .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.progress .lbl{font-size:12px;color:var(--muted);letter-spacing:2px}
+.progress .pct{font-family:var(--serif);font-size:22px;color:var(--gold2)}
+.bar{height:6px;border-radius:999px;background:rgba(255,255,255,.08);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:999px;
+  background:linear-gradient(90deg,var(--iris),var(--gold2));transition:width .5s}
+.streak{margin-top:10px;font-size:12px;color:var(--muted)}
+
+/* day tabs */
+.tabs{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:34px auto 0;max-width:560px}
+.tab{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:14px;
+  padding:12px 4px;cursor:pointer;text-align:center;transition:.2s;font-family:var(--sans)}
+.tab .d{font-family:var(--serif);font-size:15px;color:var(--cream)}
+.tab .t{font-size:11px;color:var(--muted);margin-top:2px;letter-spacing:1px}
+.tab.on{background:linear-gradient(135deg,rgba(232,201,138,.16),rgba(232,201,138,.05));
+  border-color:var(--gold);box-shadow:0 4px 18px rgba(232,201,138,.18)}
+.tab.on .d{color:var(--gold2)}
+.tab .check{font-size:11px;color:var(--ok);display:block;height:14px;margin-top:2px}
+
+/* day section */
+.day{display:none;margin-top:8px}
+.day.on{display:block}
+.day-head{text-align:center;margin:26px 0 18px}
+.day-head h2{font-family:var(--serif);font-size:24px;margin:0;color:var(--gold2);letter-spacing:2px}
+.day-head .goal{font-size:13px;color:var(--muted);margin-top:6px}
+
+/* exercise card */
+.card{background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:18px;
+  padding:20px 20px 22px;margin:0 auto 16px;max-width:560px;text-align:left;transition:.25s}
+.card.done{border-color:rgba(125,184,140,.4);background:rgba(125,184,140,.05)}
+.card .top{display:flex;align-items:flex-start;gap:12px}
+.card .no{flex:0 0 auto;width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-size:15px;color:var(--gold);border:1px solid var(--line);background:rgba(255,255,255,.03)}
+.card.done .no{color:var(--ok);border-color:rgba(125,184,140,.5)}
+.card h4{margin:0;font-size:17px;font-family:var(--serif);color:var(--cream);letter-spacing:1px}
+.card .why{font-size:12.5px;color:var(--gold);margin-top:3px}
+.card .steps{margin:12px 0 0;padding-left:18px;font-size:14px;color:var(--muted)}
+.card .steps li{margin:5px 0}
+.card .foot{display:flex;align-items:center;gap:12px;margin-top:16px}
+.mini{font-size:12px;color:var(--muted);border:1px solid var(--line);border-radius:999px;padding:3px 11px;flex:0 0 auto}
+.mini b{color:var(--gold2);font-weight:600}
+button{font-family:var(--sans)}
+.btn{background:none;border:1px solid var(--line);color:var(--cream);border-radius:12px;
+  padding:9px 16px;cursor:pointer;font-size:13.5px;letter-spacing:1px;transition:.15s}
+.btn:hover{background:rgba(255,255,255,.05)}
+.btn.primary{background:linear-gradient(135deg,var(--gold),var(--gold2));color:#241a06;border:none;
+  font-weight:600;box-shadow:0 6px 20px rgba(232,201,138,.25)}
+.btn.primary:active{transform:scale(.96)}
+.btn.done-btn{border-color:rgba(125,184,140,.5);color:var(--ok)}
+.btn.done-btn.on{background:rgba(125,184,140,.14)}
+.timer{font-variant-numeric:tabular-nums;font-size:14px;color:var(--gold2);flex:0 0 auto;
+  min-width:52px;text-align:right;font-family:var(--serif)}
+
+/* training station */
+.station{background:linear-gradient(180deg,rgba(232,201,138,.06),rgba(255,255,255,.02));
+  border:1px solid var(--line);border-radius:20px;padding:22px;margin:0 auto 22px;max-width:560px;text-align:center}
+.station h3{font-family:var(--serif);margin:0 0 4px;font-size:18px;color:var(--gold2)}
+.station .s-sub{font-size:12.5px;color:var(--muted);margin-bottom:14px}
+.track{position:relative;height:230px;border-radius:16px;overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 50%,rgba(232,201,138,.08),transparent 60%),
+    rgba(0,0,0,.28);
+  border:1px solid var(--line)}
+.track .dot{position:absolute;width:16px;height:16px;border-radius:50%;
+  left:50%;top:50%;transform:translate(-50%,-50%);
+  background:radial-gradient(circle,#fff7e2,#e8c98a);
+  box-shadow:0 0 16px 6px rgba(232,201,138,.55)}
+.track .grid-line{position:absolute;background:rgba(255,255,255,.05)}
+.track .hl{left:0;right:0;top:50%;height:1px}
+.track .vl{top:0;bottom:0;left:50%;width:1px}
+.track .cue{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  font-family:var(--serif);color:var(--muted);font-size:14px;letter-spacing:2px;pointer-events:none}
+.station .ctl{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:14px}
+.chip{background:rgba(255,255,255,.04);border:1px solid var(--line);color:var(--muted);
+  border-radius:999px;padding:7px 13px;cursor:pointer;font-size:12.5px;transition:.15s}
+.chip.on{color:#241a06;background:linear-gradient(135deg,var(--gold),var(--gold2));border-color:transparent;font-weight:600}
+.chip:active{transform:scale(.95)}
+
+.foot-note{margin-top:44px;text-align:center;font-family:var(--serif);font-size:12px;color:var(--muted);letter-spacing:1px}
+.disclaimer{margin-top:16px;text-align:center;font-family:var(--serif);font-size:11px;color:rgba(138,155,176,.65);line-height:1.8}
+
+.toast{position:fixed;left:50%;bottom:34px;transform:translateX(-50%) translateY(20px);
+  background:rgba(13,26,46,.95);border:1px solid var(--gold);color:var(--gold2);
+  padding:10px 20px;border-radius:999px;font-size:13px;letter-spacing:1px;opacity:0;
+  pointer-events:none;transition:.3s;z-index:50}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+@media(max-width:520px){h1{font-size:46px}.eye{width:126px;height:126px}.eye .iris{width:78px;height:78px}.eye .pupil{width:28px;height:28px}}
+@media(prefers-reduced-motion:reduce){.eye .iris,.star{animation:none}}
+</style>
+</head>
+<body>
+<div class="stars" id="stars"></div>
+
+<div class="wrap">
+  <div class="kicker">一 套 关 于 眼 神 的 训 练 系 统</div>
+  <h1>天目</h1>
+  <div class="sub">四 天 · 明 亮 眼 神 速 成</div>
+  <div class="tagline">眼睛的神采，来自水润、灵活、专注与自信</div>
+
+  <div class="eye"><div class="iris"></div><div class="pupil"></div><div class="spark"></div></div>
+
+  <div class="note">
+    <h3>为什么眼睛会「无神」？</h3>
+    <p>眼神是否明亮，主要由四件事决定：<b>泪膜是否水润</b>（干涩就浑浊无光）、<b>眼白是否健康</b>（睡眠不足→血丝/发黄）、<b>眼球是否灵活</b>（长时间盯屏幕→调节僵化、瞳孔涣散）、以及<b>精神状态</b>（专注、自信时眼睛自然有光）。</p>
+    <p>这套训练针对可改变的部分——<b>眼周肌力、眼球灵活度、聚焦调节、眨眼习惯与放松</b>——帮你把「累、干、呆」的眼睛，练回水润灵动的状态。效果因人而异，贵在坚持。</p>
+  </div>
+
+  <div class="progress">
+    <div class="row"><span class="lbl">总进度</span><span class="pct" id="pct">0%</span></div>
+    <div class="bar"><i id="bar"></i></div>
+    <div class="streak" id="streak"></div>
+  </div>
+
+  <div class="tabs" id="tabs"></div>
+  <div id="days"></div>
+
+  <!-- 训练台 -->
+  <div class="station" style="margin-top:40px">
+    <h3>追视训练台</h3>
+    <div class="s-sub">让光点带你的眼睛「画」出轨迹，练出灵活有神的目光</div>
+    <div class="track" id="track">
+      <div class="grid-line hl"></div><div class="grid-line vl"></div>
+      <div class="cue" id="cue">选择轨迹后开始</div>
+      <div class="dot" id="dot" style="display:none"></div>
+    </div>
+    <div class="ctl" id="patCtl">
+      <span class="chip on" data-p="cross">十字</span>
+      <span class="chip" data-p="w">W字</span>
+      <span class="chip" data-p="star">米字</span>
+      <span class="chip" data-p="circle">圆</span>
+      <span class="chip" data-p="inf">∞字</span>
+      <span class="chip" data-p="square">方框</span>
+      <span class="chip" data-p="focus">远近</span>
+    </div>
+    <div class="ctl">
+      <span class="chip" data-s="slow">慢</span>
+      <span class="chip on" data-s="mid">中</span>
+      <span class="chip" data-s="fast">快</span>
+      <button class="btn primary" id="trackBtn" style="padding:8px 20px">▶ 开始 60s</button>
+    </div>
+  </div>
+
+  <div class="station">
+    <h3>眨眼节拍器</h3>
+    <div class="s-sub">跟着节拍做「完全眨眼」，对抗干眼、恢复水润</div>
+    <div class="track" style="height:110px">
+      <div class="cue" id="blinkCue" style="font-size:26px;color:var(--gold2)">👁</div>
+    </div>
+    <div class="ctl">
+      <button class="btn primary" id="blinkBtn">▶ 开始 60s</button>
+    </div>
+  </div>
+
+  <div class="foot-note">你在看的地方 · 就是你的光</div>
+  <div class="disclaimer">本页面为护眼放松训练参考，不构成医疗建议。<br>若存在斜视、双眼不对焦、视力骤降或持续不适，请及时到眼科就诊。</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+const $=s=>document.querySelector(s);
+const DAYS=[
+ {id:1,name:'唤醒眼周肌',goal:'激活上睑提肌与眼周肌群，让眼睛更容易自然睁大'},
+ {id:2,name:'练活眼球',goal:'通过追视与扫视，提升眼球灵活度，告别呆滞'},
+ {id:3,name:'聚焦调节',goal:'远近交替与定点凝视，缓解睫状肌僵化、瞳孔涣散'},
+ {id:4,name:'神采整合',goal:'眨眼、放松与情绪表达，养成水润有神的日常习惯'}
+];
+const DATA={
+ 1:[
+  {name:'眼眶发力法',why:'锻炼上睑提肌，眼睛更有力地睁开',min:2,steps:['四指固定眉骨与苹果肌，阻止额肌代偿','仅用眼眶力量向上睁大眼，保持 5 秒','放松 2 秒，一组 15 次，共 2 组']},
+  {name:'固定眉毛练上眼皮',why:'避免抬眉，让上眼皮单独发力',min:2,steps:['手指按住额头与眉毛，固定不动','眼睛缓缓向上看，体会上眼皮发力','每次 3 秒，30 次']},
+  {name:'用力闭眼—睁眼',why:'强化眼轮匝肌，改善眼型与紧致',min:2,steps:['呼气时用力闭眼 6 秒，像要挤出眼泪','突然放松睁大，保持 3 秒','循环 6 次，做 3 组']},
+  {name:'眼周穴位放松',why:'促进眼周血液循环，缓解浮肿',min:3,steps:['按揉攒竹、鱼腰、太阳穴、四白','每个穴位 5—10 圈，轻缓用力','从眼头到眼尾再反向，轻抚眼皮各 10 次']}
+ ],
+ 2:[
+  {name:'眼球画十字',why:'极限位停留，激活六条眼外肌',min:3,steps:['按「上—中—右—中—下—中—左—中」顺序转动','每个极限处停 2 秒，速度要慢','顺、逆时针各 10 圈']},
+  {name:'W字 / 米字训练',why:'多方向扫视，眼神更灵活',min:3,steps:['把眼睛当笔，上下左右写「W」','再画「米」字，尽量转到极限','15 个为一组，每天 2 组']},
+  {name:'追视训练',why:'追随移动目标，练出稳定有神的注视',min:2,steps:['用下方「追视训练台」，眼随光点','头部不动，只用眼球跟随','每天 2—3 分钟']},
+  {name:'画几何图形',why:'平滑追视，改善扫视的连贯性',min:2,steps:['眼球依次画圆、方框、K、V','顺、逆时针交替','保持呼吸，不要耸肩']}
+ ],
+ 3:[
+  {name:'远近交替聚焦',why:'锻炼睫状肌调节力，改善长时间看屏后的涣散',min:3,steps:['食指放鼻尖前约 15 厘米，看指尖 2 秒','立刻看向 5 米外物体 2 秒，速度稍快','早晚各 30 组']},
+  {name:'定点凝视',why:'提升专注与稳定注视，练出「定」的眼神',min:4,steps:['在 2 米外白纸上画黑点，旁画灰点','睁眼盯黑点，直到灰点「消失」','从 20 秒开始，逐渐延到 5—10 分钟']},
+  {name:'扫视训练',why:'快速跳视，眼睛更有「神」',min:2,steps:['头部不动，眼球在左右两个目标间快速跳视','也可用下方追视台切「快」速','每组 30 秒，做 4 组']},
+  {name:'20-20-20 法则',why:'每 20 分钟放松一次，预防视疲劳',min:1,steps:['每用眼 20 分钟，看 6 米（20 英尺）外','持续 20 秒，顺便眨几次眼','全天执行，这是最有效的基本功']}
+ ],
+ 4:[
+  {name:'定时眨眼训练',why:'对抗干眼，泪膜完整则眼睛水润有光',min:2,steps:['用下方「眨眼节拍器」','每分钟做 15—20 次「完全眨眼」','上下眼睑要完全闭合再睁开']},
+  {name:'掌敷 Palming 放松',why:'热敷放松睫状肌，改善疲劳与暗沉',min:3,steps:['搓热双手，掌心轻敷双眼，不压眼球','闭眼深呼吸，想象眼前一片漆黑','40℃ 热敷 10 分钟效果更佳']},
+  {name:'对镜情绪表达',why:'让眼神「有内容」，告别呆滞',min:3,steps:['对镜练习喜、怒、哀、乐、惊讶等眼神','观察眼睛的细微变化，找到自然状态','可模仿影视角色或动物眼神']},
+  {name:'综合复训 + 护眼清单',why:'把训练内化成日常习惯',min:2,steps:['从 4 天中各选一项，做一次综合训练','保证 7—8 小时睡眠，多喝水','补 Omega-3、叶黄素，每天户外自然光 1 小时']}
+ ]
+};
+const STORE='tianmu-progress-v1';
+let prog=load();
+function load(){try{return JSON.parse(localStorage.getItem(STORE))||{}}catch(e){return {}}}
+function save(){localStorage.setItem(STORE,JSON.stringify(prog));render();}
+
+/* stars */
+(function(){const b=$('#stars');for(let i=0;i<70;i++){const s=document.createElement('div');s.className='star';
+  const z=(1+Math.random()*2).toFixed(1);s.style.cssText=`width:${z}px;height:${z}px;left:${(Math.random()*100).toFixed(2)}%;top:${(Math.random()*100).toFixed(2)}%;--d:${(3+Math.random()*5).toFixed(1)}s`;b.appendChild(s);}})();
+
+/* render */
+function render(){
+  $('#tabs').innerHTML=DAYS.map(d=>{
+    const all=DATA[d.id].length,dn=(prog['d'+d.id]||[]).length;
+    const ok=dn===all&&all>0;
+    return `<div class="tab ${cur===d.id?'on':''}" data-d="${d.id}">
+      <span class="d">第${d.id}天</span><span class="t">${d.name}</span>
+      <span class="check">${ok?'✓ 完成':'&nbsp;'}</span></div>`;
+  }).join('');
+  $('#days').innerHTML=DAYS.map(d=>{
+    const done=prog['d'+d.id]||[];
+    const cards=DATA[d.id].map((e,i)=>{
+      const isDone=done.includes(i);
+      return `<div class="card ${isDone?'done':''}" data-day="${d.id}" data-i="${i}">
+        <div class="top"><div class="no">${i+1}</div>
+          <div><h4>${e.name}</h4><div class="why">${e.why}</div></div></div>
+        <ol class="steps">${e.steps.map(s=>`<li>${s}</li>`).join('')}</ol>
+        <div class="foot"><span class="mini">约 <b>${e.min}</b> 分钟</span>
+          <button class="btn timer" data-timer>${e.min}:00</button>
+          <button class="btn done-btn ${isDone?'on':''}" data-done>${isDone?'✓ 已打卡':'打卡完成'}</button>
+        </div></div>`;
+    }).join('');
+    return `<div class="day ${cur===d.id?'on':''}" data-dayview="${d.id}">
+      <div class="day-head"><h2>第${d.id}天 · ${d.name}</h2><div class="goal">${d.goal}</div></div>
+      ${cards}</div>`;
+  }).join('');
+  updateProgress();
+  bindCards();
+}
+
+let cur=1;
+$('#tabs').addEventListener('click',e=>{const t=e.target.closest('.tab');if(!t)return;cur=+t.dataset.d;render();});
+
+function bindCards(){
+  document.querySelectorAll('.card').forEach(c=>{
+    const d=+c.dataset.day,i=+c.dataset.i;
+    const doneBtn=c.querySelector('[data-done]');
+    doneBtn.onclick=()=>{
+      let arr=prog['d'+d]||[];
+      if(arr.includes(i))arr=arr.filter(x=>x!==i);else arr.push(i);
+      prog['d'+d]=arr;save();toast(arr.includes(i)?'已打卡，继续保持':'已取消打卡');
+    };
+    const tbtn=c.querySelector('[data-timer]');
+    const min=DATA[d][i].min;
+    tbtn.onclick=()=>{startCountdown(tbtn,min*60);};
+  });
+}
+function updateProgress(){
+  const total=DAYS.reduce((a,d)=>a+DATA[d.id].length,0);
+  let done=0;DAYS.forEach(d=>{done+=(prog['d'+d.id]||[]).length;});
+  const p=total?Math.round(done/total*100):0;
+  $('#pct').textContent=p+'%';$('#bar').style.width=p+'%';
+  $('#streak').textContent=`已完成 ${done} / ${total} 项训练`;
+}
+function startCountdown(btn,sec){
+  if(btn.dataset.run){clearInterval(btn.dataset.run);btn.dataset.run='';btn.textContent='00:00';return;}
+  let s=sec;const orig=btn.textContent;
+  btn.textContent=fmt(s);
+  btn.dataset.run=setInterval(()=>{s--;btn.textContent=fmt(Math.max(0,s));
+    if(s<=0){clearInterval(btn.dataset.run);btn.dataset.run='';btn.textContent='完成 ✓';setTimeout(()=>{btn.textContent=orig;},1800);}},1000);
+}
+function fmt(t){t=Math.max(0,Math.floor(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0');}
+
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');setTimeout(()=>t.classList.remove('show'),1600);}
+
+/* ---- tracking dot ---- */
+const track=$('#track'),dot=$('#dot'),cue=$('#cue');
+let curPat='cross',curSpeed='mid',trackRun=false,rafId=null;
+const PATHS={
+  cross:{pts:[{x:.5,y:.14,h:900},{x:.5,y:.5,h:120},{x:.86,y:.5,h:900},{x:.5,y:.5,h:120},{x:.5,y:.86,h:900},{x:.5,y:.5,h:120},{x:.14,y:.5,h:900},{x:.5,y:.5,h:120}],dur:900},
+  w:{pts:[{x:.1,y:.22,h:150},{x:.3,y:.8,h:150},{x:.5,y:.22,h:150},{x:.7,y:.8,h:150},{x:.9,y:.22,h:150}],dur:700},
+  star:{pts:[{x:.5,y:.14,h:250},{x:.5,y:.5,h:80},{x:.5,y:.86,h:250},{x:.5,y:.5,h:80},{x:.86,y:.5,h:250},{x:.5,y:.5,h:80},{x:.14,y:.5,h:250},{x:.5,y:.5,h:80},{x:.76,y:.24,h:250},{x:.5,y:.5,h:80},{x:.76,y:.76,h:250},{x:.5,y:.5,h:80},{x:.24,y:.76,h:250},{x:.5,y:.5,h:80},{x:.24,y:.24,h:250},{x:.5,y:.5,h:80}],dur:650},
+  circle:{pts:(()=>{let a=[];for(let i=0;i<=40;i++){const th=i/40*Math.PI*2;a.push({x:.5+.36*Math.cos(th),y:.5+.36*Math.sin(th),h:0});}return a;})(),dur:500},
+  inf:{pts:(()=>{let a=[];for(let i=0;i<=60;i++){const th=i/60*Math.PI*2;const r=.36*Math.cos(th)/(1+Math.sin(th)**2);a.push({x:.5+r*Math.cos(th),y:.5+r*Math.sin(th)*1.05,h:0});}return a;})(),dur:480},
+  square:{pts:[{x:.22,y:.22,h:300},{x:.78,y:.22,h:300},{x:.78,y:.78,h:300},{x:.22,y:.78,h:300},{x:.22,y:.22,h:300}],dur:800},
+  focus:{pts:[{x:.5,y:.5,h:0},{x:.5,y:.5,h:120}],dur:0}
+};
+const SPEED={slow:1.6,mid:1,fast:.55};
+$('#patCtl').addEventListener('click',e=>{const c=e.target.closest('.chip');if(!c)return;
+  document.querySelectorAll('#patCtl .chip').forEach(x=>x.classList.remove('on'));c.classList.add('on');curPat=c.dataset.p;});
+document.querySelectorAll('[data-s]').forEach(c=>c.onclick=()=>{
+  document.querySelectorAll('[data-s]').forEach(x=>x.classList.remove('on'));c.classList.add('on');curSpeed=c.dataset.s;});
+function ease(t){return t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;}
+function pos(px,py){const r=track.getBoundingClientRect();return {x:px*r.width,y:py*r.height};}
+function runPath(){
+  const P=PATHS[curPat],sp=SPEED[curSpeed];
+  dot.style.display='block';cue.style.display='none';
+  let i=0,pi=P.pts[0];
+  function step(now){
+    if(!trackRun)return;
+    let target=P.pts[(i+1)%P.pts.length];
+    const p=pos(target.x,target.y);const start={x:pos(pi.x,pi.y).x,y:pos(pi.x,pi.y).y};
+    const D=P.dur*sp;const t0=now;
+    function mv(n){
+      if(!trackRun)return;
+      const k=Math.min(1,(n-t0)/D);const e=ease(k);
+      const x=start.x+(p.x-start.x)*e,y=start.y+(p.y-start.y)*e;
+      dot.style.left=x+'px';dot.style.top=y+'px';
+      if(k<1){rafId=requestAnimationFrame(mv);}
+      else{pi=target;i=(i+1)%P.pts.length;
+        const hold=target.h||0;if(hold>0)setTimeout(()=>{rafId=requestAnimationFrame(step);},hold);else rafId=requestAnimationFrame(step);}
+    }
+    rafId=requestAnimationFrame(mv);
+  }
+  rafId=requestAnimationFrame(step);
+}
+$('#trackBtn').onclick=function(){
+  if(trackRun){trackRun=false;cancelAnimationFrame(rafId);dot.style.display='none';cue.style.display='block';cue.textContent='选择轨迹后开始';
+    this.textContent='▶ 开始 60s';return;}
+  trackRun=true;this.textContent='■ 停止';
+  runPath();
+  setTimeout(()=>{if(trackRun){trackRun=false;cancelAnimationFrame(rafId);dot.style.display='none';cue.style.display='block';cue.textContent='完成 ✓';this.textContent='▶ 开始 60s';}},60000);
+};
+
+/* ---- blink metronome ---- */
+$('#blinkBtn').onclick=function(){
+  if(this.dataset.run){return;}
+  const c=$('#blinkCue');let s=60,n=0;this.dataset.run='1';
+  this.textContent='■ 进行中';
+  const tick=()=>{n++;if(n%4===0){c.textContent='闭眼 2s';c.style.color='var(--gold)';}
+    else{c.textContent='睁眼';c.style.color='var(--gold2)';}};
+  tick();
+  const iv=setInterval(()=>{s--;if(s<=0){clearInterval(iv);c.textContent='👁';c.style.color='var(--gold2)';this.textContent='▶ 开始 60s';delete this.dataset.run;return;}tick();},1000);
+  setTimeout(()=>{clearInterval(iv);c.textContent='👁';c.style.color='var(--gold2)';this.textContent='▶ 开始 60s';delete this.dataset.run;},60000);
+};
+
+render();
+</script>
+</body>
+</html>
